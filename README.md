@@ -1,4 +1,4 @@
-# dbt Repository - dbt Fundamentals Course
+# dbt Fundamentals Course
 
 Welcome to the dbt Repository for the dbt Fundamentals Course! This repository serves as a comprehensive resource containing all the exercises and code samples corresponding to the dbt Fundamentals Course. Whether you are new to dbt or seeking to deepen your expertise in data modeling, sources, testing, documentation, and deployment, this course will equip you with essential skills for efficient analytics engineering.
 
