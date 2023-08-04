@@ -36,12 +36,15 @@ models:
   - name: stg_payments
     description: One payment per order
     columns:
-      - name: id
+      - name: payment_id
         description: Primary key
         tests:
           - unique
           - not_null
       - name: orderid
+        tests:
+          - unique
+          - not_null
         description: Foreign Key.
       - name: amount
         description: Quantities.
