@@ -33,4 +33,16 @@ models:
         tests:
           - accepted_values:
               values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
+  - name: stg_payments
+    description: One payment per order
+    columns:
+      - name: id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: orderid
+        description: Foreign Key.
+      - name: amount
+        description: Quantities.
 
