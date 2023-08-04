@@ -1,9 +1,7 @@
-select customer_id c,
-       order_id o,
-       amount p
-from stg_orders o
-left join stg_payment p
-    on o.order_id = p.order_id
-left join stg_customers c 
-    on c.customer_id= o.customer_id
+select stg_customers.customer_id,
+       stg_orders.order_id ,
+       stg_payment.amount 
+from dbt_spereira.stg_orders o
+left join dbt_spereira.stg_payment using (orderid)
+left join dbt_spereira.stg_customers using  (customer_id)
         
