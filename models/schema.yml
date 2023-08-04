@@ -42,7 +42,7 @@ models:
           - unique
           - not_null
       - name: orderid
-        description: Foreign Key.
+        description: Foreign Key
       - name: amount
-        description: Quantities.
+        description: Quantities
 

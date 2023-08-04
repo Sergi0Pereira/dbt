@@ -1,5 +1,30 @@
-select stg_orders.customer_id,
-       stg_orders.order_id ,
-       stg_payments.amount 
-from dbt_spereira.stg_orders
-left join dbt_spereira.stg_payments  on stg_orders.order_id = stg_payments.orderid 
+with orders as  (
+    select * from {{ ref('stg_orders' )}}
+),
+
+payments as (
+    select * from {{ ref('stg_payments') }}
+),
+
+order_payments as (
+    select
+        order_id,
+        sum(case when status = 'success' then amount end) as amount
+
+    from payments
+    group by 1
+),
+
+final as (
+
+    select
+        orders.order_id,
+        orders.customer_id,
+        orders.order_date,
+        coalesce(order_payments.amount, 0) as amount
+
+    from orders
+    left join order_payments using (order_id)
+)
+
+select * from final
