@@ -4,4 +4,4 @@ select
     amount
 from
 
-`dbt-tutorial.stripe.payment`;
+`dbt-tutorial.stripe.payment`
