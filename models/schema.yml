@@ -4,7 +4,7 @@ models:
   - name: customers
     description: One record per customer
     columns:
-      - name: customer_id
+      - name: dim_customers
         description: Primary key
         tests:
           - unique
