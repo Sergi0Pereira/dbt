@@ -35,7 +35,7 @@ with
             customer_orders.first_order_date,
             customer_orders.most_recent_order_date,
             coalesce(customer_orders.number_of_orders, 0) as number_of_orders,
-            sum(stg_payment.amount) as lifetime_value
+            sum(fct_orders.amount) as lifetime_value
 
         from customers
 
