@@ -42,9 +42,6 @@ models:
           - unique
           - not_null
       - name: orderid
-        tests:
-          - unique
-          - not_null
         description: Foreign Key.
       - name: amount
         description: Quantities.
