@@ -15,7 +15,6 @@ with
 
         select
             customer_id,
-
             min(order_date) as first_order_date,
             max(order_date) as most_recent_order_date,
             count(order_id) as number_of_orders
@@ -26,6 +25,12 @@ with
 
     ),
 
+    payments as (
+        
+        select * from {{ ref("stg_payments") }}
+        
+),
+
     final as (
 
         select
@@ -35,12 +40,11 @@ with
             customer_orders.first_order_date,
             customer_orders.most_recent_order_date,
             coalesce(customer_orders.number_of_orders, 0) as number_of_orders,
-            sum(fct_orders.amount) as lifetime_value
+            sum(stg_payments.amount) as lifetime_value
 
         from customers
 
         left join customer_orders using (customer_id)
-        left join fct_orders using (customer_id)
 
     )
 
