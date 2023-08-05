@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_payments
+    description: All the attempts of payment
+    columns:
+      - name: payment_id
+        description: ID of the payment transaction
+      - name: order_id
+        description: ID of the order related to the transaction
+      - name: payment_method
+        description: Payment method used in the transaction
+      - name: status
+        description: '{{ doc("payment_status")}}'
+      - name: amount
+        description: Transaction amount in cents
+      - name: created_at
+        description: Date and time of the transaction creation
